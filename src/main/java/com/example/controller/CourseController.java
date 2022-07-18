@@ -2,8 +2,8 @@ package com.example.controller;
 
 import com.example.dbo.CourseRepository;
 import com.example.Entity.Course;
-import com.example.dbo.TextRepository;
-import com.example.response.ResponseHandler;
+//import com.example.dbo.TextRepository;
+//import com.example.response.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +21,8 @@ public class CourseController {
     @Autowired
     private CourseRepository courseRepository;
 
-    @Autowired
-    private TextRepository textRepository;
+//    @Autowired
+//    private TextRepository textRepository;
 
     @Autowired
     private CourseService courseService;

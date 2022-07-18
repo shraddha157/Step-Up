@@ -1,23 +1,21 @@
 package com.example.Entity;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 
-@Entity
-@Table(name="Course")
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Course {
 
     @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public int id;
 
-    @Column
     public String name;
 
 //    @Column
 //    public String content;
 
-    @Column
     public int activityId;
 
     public int getActivityId() {
