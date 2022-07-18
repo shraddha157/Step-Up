@@ -1,18 +1,16 @@
-package com.example.controller;
+package com.example.StepUp.controller;
 
-import com.example.dbo.CourseRepository;
-import com.example.Entity.Course;
+import com.example.StepUp.dbo.CourseRepository;
+import com.example.StepUp.Entity.Course;
 //import com.example.dbo.TextRepository;
 //import com.example.response.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.Services.CourseService;
+import com.example.StepUp.Services.CourseService;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/courses")

@@ -1,4 +1,4 @@
-package com.example.Entity;
+package com.example.StepUp.Entity;
 
 //import javax.persistence.*;
 

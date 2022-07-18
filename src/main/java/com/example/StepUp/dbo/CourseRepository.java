@@ -1,8 +1,7 @@
-package com.example.dbo;
+package com.example.StepUp.dbo;
 
-import com.example.Entity.Course;
+import com.example.StepUp.Entity.Course;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.CrudRepository;
 
 public interface CourseRepository extends MongoRepository<Course,Integer> {
 }

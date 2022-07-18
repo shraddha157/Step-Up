@@ -1,7 +1,7 @@
-package com.example.Services;
+package com.example.StepUp.Services;
 
-import com.example.Entity.Course;
-import com.example.dbo.CourseRepository;
+import com.example.StepUp.Entity.Course;
+import com.example.StepUp.dbo.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
