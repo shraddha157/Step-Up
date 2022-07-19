@@ -6,6 +6,7 @@ import com.example.StepUp.Entity.Course;
 //import com.example.response.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.StepUp.Services.CourseService;
@@ -33,6 +34,7 @@ public class CourseController {
     {
         System.out.println("received find all request");
         return courseService.findAll();
+        //need to send list of courses if available otherwise a msg "No course available"
     }
 
     @GetMapping("/{id}")
@@ -52,8 +54,13 @@ public class CourseController {
 
     @CrossOrigin(origins = "http://localhost:9090")
     @PostMapping
-    public Course saveCourse(@RequestBody Course course)
-    {
-        return courseService.saveCourse(course);
+    public ResponseEntity<Course> saveCourse(@RequestBody Course course) {
+        try {
+            Course c = courseService.saveCourse(course);
+            return ResponseEntity.of(Optional.of(c));
+        } catch (HttpMessageNotReadableException e) {
+            System.out.println("invalid input");
+            return ResponseEntity.status(500).build();
+        }
     }
 }

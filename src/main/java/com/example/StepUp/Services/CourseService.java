@@ -47,11 +47,13 @@ public class CourseService {
             return course.get();
         }
         else
-            return new Course();
+            return new Course(); //need to return a message saying course not found instead of a new Course
     }
 
     public Course saveCourse(Course course)
     {
        return courseRepository.save(course);
     }
+
+    public List<Course> saveCourses(List<Course> course){ return courseRepository.saveAll(course);}
 }
