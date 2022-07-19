@@ -63,4 +63,15 @@ public class CourseController {
             return ResponseEntity.status(500).build();
         }
     }
+    @PostMapping
+    public ResponseEntity<List<Course>> saveCourses(@RequestBody List<Course> courses) {
+        try {
+            List<Course> c = courseService.saveCourses(courses);
+            return ResponseEntity.of(Optional.of(c));
+        } catch (HttpMessageNotReadableException e) {
+            System.out.println("invalid input");
+            return ResponseEntity.status(500).build();
+        }
+    }
+
 }
