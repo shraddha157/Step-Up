@@ -1,18 +1,32 @@
-//package com.example.Entity;
-//
-//import javax.persistence.*;
-//
-//@Entity
-//public class TextType extends Activity{
-//
-//    @Column
-//    public String content;
-//
-//    public String getContent() {
-//        return content;
-//    }
-//
-//    public void setContent(String content) {
-//        this.content = content;
-//    }
-//}
+package com.example.StepUp.Entity;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class TextType {
+
+    @Id
+    public int id;
+
+    public String content;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+
+
+}

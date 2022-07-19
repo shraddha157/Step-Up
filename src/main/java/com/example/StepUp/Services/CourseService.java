@@ -5,6 +5,7 @@ import com.example.StepUp.dbo.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +26,7 @@ public class CourseService {
 
         if(course.isPresent())
         {
-            int actId=course.get().getActivityId();
+            ArrayList<Integer> actId=course.get().getActivityIdList();
             //Fetching id of activity from here stored in actId
             //Task is to fetch question using this id and fetch textType activity using textRepository
             //and return a JSON like this:

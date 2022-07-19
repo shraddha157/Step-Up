@@ -5,6 +5,8 @@ package com.example.StepUp.Entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+
 @Document
 public class Course {
 
@@ -16,15 +18,25 @@ public class Course {
 //    @Column
 //    public String content;
 
-    public int activityId;
+    //public int activityId;
 
-    public int getActivityId() {
-        return activityId;
+    public ArrayList<Integer> activityIdList;
+
+    public ArrayList<Integer> getActivityIdList() {
+        return activityIdList;
     }
 
-    public void setActivityId(int activityId) {
-        this.activityId = activityId;
+    public void setActivityIdList(ArrayList<Integer> activityIdList) {
+        this.activityIdList = activityIdList;
     }
+
+//    public int getActivityId() {
+//        return activityId;
+//    }
+
+//    public void setActivityId(int activityId) {
+//        this.activityId = activityId;
+//    }
 
     public int getId() {
         return id;
