@@ -63,7 +63,8 @@ public class CourseController {
             return ResponseEntity.status(500).build();
         }
     }
-    @PostMapping
+    @CrossOrigin(origins = "http://localhost:9090")
+    @PostMapping("/savecourses")
     public ResponseEntity<List<Course>> saveCourses(@RequestBody List<Course> courses) {
         try {
             List<Course> c = courseService.saveCourses(courses);
