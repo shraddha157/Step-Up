@@ -4,11 +4,12 @@ package com.example.StepUp.Services;
 import com.example.StepUp.Entity.MultipleChoice;
 import com.example.StepUp.dbo.MultipleChoiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@org.springframework.stereotype.Service
+@Service
 public class MultipleChoiceService {
 
     @Autowired

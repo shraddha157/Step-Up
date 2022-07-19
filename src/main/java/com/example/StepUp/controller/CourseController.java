@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.StepUp.Services.CourseService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/courses")
@@ -32,12 +33,20 @@ public class CourseController {
     {
         System.out.println("received find all request");
         return courseService.findAll();
-        //return (List<Course>) courseRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Course> findCourseById(@PathVariable(value= "id") int id){
-       return courseService.findById(id);
+    public ResponseEntity<Course> findCourseById(@PathVariable(value= "id") String id){
+        try {
+            int d = Integer.parseInt(id);
+            Course course = courseService.findById(d);
+            return ResponseEntity.of(Optional.of(course));
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Invalid Course Id");
+            return ResponseEntity.status(500).build();
+        }
     }
 
 

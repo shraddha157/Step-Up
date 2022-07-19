@@ -4,12 +4,13 @@ import com.example.StepUp.Entity.Course;
 import com.example.StepUp.dbo.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@org.springframework.stereotype.Service
+@Service
 public class CourseService {
 
     @Autowired
@@ -17,10 +18,10 @@ public class CourseService {
 
     public List<Course> findAll()
     {
-        return (List<Course>)courseRepository.findAll();
+        return courseRepository.findAll();
     }
 
-    public ResponseEntity<Course> findById(int id)
+    public Course findById(int id)
     {
         Optional<Course> course= courseRepository.findById(id);
 
@@ -43,10 +44,10 @@ public class CourseService {
              */
             //Here activity array will be storing multiple activities in future.
             //return ResponseHandler.generateResponse(textRepository.findById(actId), HttpStatus.OK,course);
-            return ResponseEntity.ok().body(course.get());
+            return course.get();
         }
         else
-            return ResponseEntity.status(500).build();
+            return new Course();
     }
 
     public Course saveCourse(Course course)
