@@ -41,8 +41,8 @@ public class CourseController {
     public ResponseEntity<Course> findCourseById(@PathVariable(value= "id") String id){
         try {
             int d = Integer.parseInt(id);
-            Course course = courseService.findById(d);
-            return ResponseEntity.of(Optional.of(course));
+            Optional<Course> course = courseService.findById(d);
+            return ResponseEntity.of(Optional.of(course.get()));
         }
         catch(NumberFormatException e)
         {
@@ -59,7 +59,7 @@ public class CourseController {
             Course c = courseService.saveCourse(course);
             return ResponseEntity.of(Optional.of(c));
         } catch (HttpMessageNotReadableException e) {
-            System.out.println("invalid input");
+            System.out.println("Invalid input");
             return ResponseEntity.status(500).build();
         }
     }
@@ -70,7 +70,7 @@ public class CourseController {
             List<Course> c = courseService.saveCourses(courses);
             return ResponseEntity.of(Optional.of(c));
         } catch (HttpMessageNotReadableException e) {
-            System.out.println("invalid input");
+            System.out.println("Invalid Input ");
             return ResponseEntity.status(500).build();
         }
     }

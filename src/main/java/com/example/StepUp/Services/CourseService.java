@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -21,33 +22,16 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
-    public Course findById(int id)
+    public Optional<Course> findById(int id)
     {
         Optional<Course> course= courseRepository.findById(id);
-
         if(course.isPresent())
         {
             ArrayList<Integer> actId=course.get().getActivityIdList();
-            //Fetching id of activity from here stored in actId
-            //Task is to fetch question using this id and fetch textType activity using textRepository
-            //and return a JSON like this:
-            /*
-               {
-                  "id": course.id,
-                  "name": course.name,
-                  "activity": {
-                      "id": textType.id,
-                      "type": textType.type,
-                      "content": textType.content
-                  }
-               }
-             */
-            //Here activity array will be storing multiple activities in future.
-            //return ResponseHandler.generateResponse(textRepository.findById(actId), HttpStatus.OK,course);
-            return course.get();
+            return course;
         }
         else
-            return new Course(); //need to return a message saying course not found instead of a new Course
+            return null;
     }
 
     public Course saveCourse(Course course)
