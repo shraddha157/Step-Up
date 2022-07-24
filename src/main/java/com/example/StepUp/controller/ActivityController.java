@@ -26,6 +26,8 @@ public class ActivityController {
         return activityService.findAll();
     }
 
+//    @GetMapping("/content/{id}")
+//    public ResponseEntity<>
     @GetMapping("/{id}")
     public ResponseEntity<Activity> findById(@PathVariable(value="id") int id)
     {

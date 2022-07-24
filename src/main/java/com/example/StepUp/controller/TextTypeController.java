@@ -1,5 +1,6 @@
 package com.example.StepUp.controller;
 
+import com.example.StepUp.Entity.QuestionParent;
 import com.example.StepUp.Entity.TextType;
 import com.example.StepUp.Services.TextTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class TextTypeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TextType> findById(@PathVariable(value = "id") int id)
+    public ResponseEntity<QuestionParent> findById(@PathVariable(value = "id") int id)
     {
         Optional<TextType> textType= textTypeService.findById(id);
         if(textType.isPresent())
